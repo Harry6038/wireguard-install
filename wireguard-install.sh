@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Secure WireGuard server installer
-# https://github.com/angristan/wireguard-install
+# https://github.com/Harry6038/wireguard-install
 
 RED='\033[0;31m'
 ORANGE='\033[0;33m'
@@ -67,7 +67,7 @@ function initialCheck() {
 
 function installQuestions() {
 	echo "Welcome to the WireGuard installer!"
-	echo "The git repository is available at: https://github.com/angristan/wireguard-install"
+	echo "The git repository is available at: https://github.com/Harry6038/wireguard-install"
 	echo ""
 	echo "I need to ask you a few questions before starting the setup."
 	echo "You can leave the default options and just press enter if you are ok with them."
@@ -107,10 +107,10 @@ function installQuestions() {
 
 	# Adguard DNS by default
 	until [[ ${CLIENT_DNS_1} =~ ^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$ ]]; do
-		read -rp "First DNS resolver to use for the clients: " -e -i 94.140.14.14 CLIENT_DNS_1
+		read -rp "First DNS resolver to use for the clients: " -e -i 8.8.8.8 CLIENT_DNS_1
 	done
 	until [[ ${CLIENT_DNS_2} =~ ^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$ ]]; do
-		read -rp "Second DNS resolver to use for the clients (optional): " -e -i 94.140.15.15 CLIENT_DNS_2
+		read -rp "Second DNS resolver to use for the clients (optional): " -e -i 223.5.5.5 CLIENT_DNS_2
 		if [[ ${CLIENT_DNS_2} == "" ]]; then
 			CLIENT_DNS_2="${CLIENT_DNS_1}"
 		fi
@@ -415,7 +415,7 @@ function uninstallWg() {
 
 function manageMenu() {
 	echo "Welcome to WireGuard-install!"
-	echo "The git repository is available at: https://github.com/angristan/wireguard-install"
+	echo "The git repository is available at: https://github.com/Harry6038/wireguard-install"
 	echo ""
 	echo "It looks like WireGuard is already installed."
 	echo ""
